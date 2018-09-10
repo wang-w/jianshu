@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { actionCreators } from './store';
 import { 
     HeaderWrapper, 
     Logo, Nav, NavItem, 
     NavSearch, Addition, 
     Button, SearchWrapper
-} from './style'
+} from './style';
 
 const Header = (props) => {
     console.log(props)
@@ -42,22 +42,18 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.focused
+        focused: state.get('header').get('focused')
     }
 }
 
 const mapDisPatchToProps = (dispatch) => {
     return {
         handleInputFocus() {
-            const action = {
-                type: 'search_focus'
-            };
+            const action = actionCreators.searchFocus();
             dispatch(action);
         },
         handleInputBlur() {
-            const action = {
-                type: 'search_blur'
-            };
+            const action = actionCreators.searchBlur();
             dispatch(action);
         }
     }
