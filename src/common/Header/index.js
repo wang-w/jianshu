@@ -10,20 +10,31 @@ import {
 } from './style';
 
 class Header extends Component {
-    getListArea(show) {
-        if (show) {
+    getListArea() {
+        const {focused, list, page, mouseIn, totalPage, handleChangePage} = this.props;
+        const jsList = list.toJS();
+        const pageList = [];
+        if (jsList.length) {
+            for (let i = (page - 1) * 10; i < page * 10; i++) {
+                if (jsList[i]) {
+                    pageList.push(
+                        <SearchInfoItem key={jsList[i]}>{jsList[i]}</SearchInfoItem>
+                    )
+                }
+            }
+        }
+        if (focused || mouseIn) {
             return (
-                <SearchInfo>
+                <SearchInfo onMouseEnter={this.props.hanleMouseEnter} onMouseLeave={this.props.hanleMouseLeave}>
                     <SearchInfoTitle>
                         热门搜索
-                        <SearchInfoSwitch>换一换</SearchInfoSwitch>
+                        <SearchInfoSwitch onClick={() => {handleChangePage(page, totalPage, this.spinIcon)}}>
+                        <i ref={(icon) => {this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>
+                            换一换
+                        </SearchInfoSwitch>
                     </SearchInfoTitle>
                     <SearchInfoList>
-                        {  
-                            this.props.list.map((item, index) => {
-                                return <SearchInfoItem key={index}>{item}</SearchInfoItem>
-                            })
-                        }
+                        { pageList }
                     </SearchInfoList>
                 </SearchInfo>
             )
@@ -33,6 +44,7 @@ class Header extends Component {
     }
 
     render() {
+        const {focused, handleInputFocus, handleInputBlur, list} = this.props
         return (
             <HeaderWrapper>
             <Logo />
@@ -44,12 +56,12 @@ class Header extends Component {
                     <i className="iconfont">&#xe636;</i>
                 </NavItem>
                 <SearchWrapper>
-                    <NavSearch className={ this.props.focused ? 'focused' : ''}
-                    onFocus = {this.props.handleInputFocus} 
-                    onBlur = {this.props.handleInputBlur} >
+                    <NavSearch className={ focused ? 'focused' : ''}
+                    onFocus = { () => handleInputFocus(list) } 
+                    onBlur = {handleInputBlur} >
                     </NavSearch>
-                    <i className={ this.props.focused ? 'iconfont focused' : 'iconfont'}>&#xe623;</i>
-                    { this.getListArea(this.props.focused) }
+                    <i className={ focused ? 'iconfont focused zoom' : 'iconfont zoom'}>&#xe623;</i>
+                    { this.getListArea(focused) }
                 </SearchWrapper>
             </Nav>
             <Addition>
@@ -67,20 +79,48 @@ class Header extends Component {
 const mapStateToProps = (state) => {
     return {
         focused: state.get('header').get('focused'),
-        list: state.getIn(['header', 'list'])
+        list: state.getIn(['header', 'list']),
+        page: state.getIn(['header', 'page']),
+        totalPage: state.getIn(['header', 'totalPage']),
+        mouseIn: state.getIn(['header', 'mouseIn'])
     }
 }
 
 const mapDisPatchToProps = (dispatch) => {
     return {
-        handleInputFocus() {
+        handleInputFocus(list) {
+            if (list.size === 0) {
+                dispatch(actionCreators.getList())
+            }
             const action = actionCreators.searchFocus();
-            dispatch(actionCreators.getList())
             dispatch(action);
         },
         handleInputBlur() {
             const action = actionCreators.searchBlur();
             dispatch(action);
+        },
+        hanleMouseEnter() {
+            dispatch(actionCreators.mouseEnter())
+        },
+        hanleMouseLeave() {
+            dispatch(actionCreators.mouseLeave())
+        },
+        handleChangePage(page, totalPage, spin) {
+            let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
+            console.log(originAngle)
+            if (originAngle) {
+                originAngle = parseInt(originAngle, 10)
+            } else {
+                originAngle = 0
+            }
+            spin.style.transform = 'rotate(' + (originAngle + 360 ) + 'deg)'
+            console.log(spin)
+            if (page < totalPage) {
+                dispatch(actionCreators.changePage(page + 1))
+            } else {
+                dispatch(actionCreators.changePage(1))
+            }
+            
         }
     }
 }
