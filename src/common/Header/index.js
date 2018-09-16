@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { actionCreators } from './store';
 import { 
     HeaderWrapper, 
@@ -47,31 +48,33 @@ class Header extends Component {
         const {focused, handleInputFocus, handleInputBlur, list} = this.props
         return (
             <HeaderWrapper>
-            <Logo />
-            <Nav>
-                <NavItem className='left active'>首页</NavItem>
-                <NavItem className='left'>下载App</NavItem>
-                <NavItem className='right'>登录</NavItem>
-                <NavItem className='right'>
-                    <i className="iconfont">&#xe636;</i>
-                </NavItem>
-                <SearchWrapper>
-                    <NavSearch className={ focused ? 'focused' : ''}
-                    onFocus = { () => handleInputFocus(list) } 
-                    onBlur = {handleInputBlur} >
-                    </NavSearch>
-                    <i className={ focused ? 'iconfont focused zoom' : 'iconfont zoom'}>&#xe623;</i>
-                    { this.getListArea(focused) }
-                </SearchWrapper>
-            </Nav>
-            <Addition>
-                <Button className='writting'>
-                    <i className="iconfont">&#xe624;</i>
-                    写文章
-                </Button>
-                <Button className='reg'>注册</Button>
-            </Addition>
-        </HeaderWrapper>
+                <Link to='/'>
+                    <Logo />
+                </Link>
+                <Nav>
+                    <NavItem className='left active'>首页</NavItem>
+                    <NavItem className='left'>下载App</NavItem>
+                    <NavItem className='right'>登录</NavItem>
+                    <NavItem className='right'>
+                        <i className="iconfont">&#xe636;</i>
+                    </NavItem>
+                    <SearchWrapper>
+                        <NavSearch className={ focused ? 'focused' : ''}
+                        onFocus = { () => handleInputFocus(list) } 
+                        onBlur = {handleInputBlur} >
+                        </NavSearch>
+                        <i className={ focused ? 'iconfont focused zoom' : 'iconfont zoom'}>&#xe623;</i>
+                        { this.getListArea(focused) }
+                    </SearchWrapper>
+                </Nav>
+                <Addition>
+                    <Button className='writting'>
+                        <i className="iconfont">&#xe624;</i>
+                        写文章
+                    </Button>
+                    <Button className='reg'>注册</Button>
+                </Addition>
+            </HeaderWrapper>
         )
     }
 }
