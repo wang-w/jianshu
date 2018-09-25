@@ -6,7 +6,8 @@ const defaultState = fromJS({
     mouseIn: false,
     list: [],
     page: 1,
-    totalPage: 1
+    totalPage: 1,
+    login: false
 })
 
 export default (state = defaultState, action) => {
@@ -19,7 +20,7 @@ export default (state = defaultState, action) => {
     if (action.type === constants.CHANGE_LIST) {
         return state.merge({
             list: action.data,
-            totalPage: action.totalPage   
+            totalPage: action.totalPage
         });
     }
     if (action.type === constants.MOUSE_ENTER) {

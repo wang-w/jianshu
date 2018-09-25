@@ -12,24 +12,24 @@
 		}],
 		"articleList": [{
 			"id": 1,
-			"title": "胡歌12年后首谈车祸",
-			"desc": "文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...",
-			"imgUrl": "//upload-images.jianshu.io/upload_images/2259045-2986b9be86b01f63?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+			"title": "Redux 使用流程与个人心得（一）",
+			"desc": "Redux 是React生态中重要的组成部分。很多人都说，简单的应用可以不用此工具。但是我个人认为，中小型应用使用的话，可以使文件结构更加规范，代码可读性更强。因为React提出将展示组件与容器组件分离的思想，所以降低了React 与Redux之间的耦合度。",
+			"imgUrl": "//upload-images.jianshu.io/upload_images/2385085-76e80304b600d0c3?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
 		}, {
 			"id": 2,
-			"title": "胡歌12年后首谈车祸：既然活下来了，就不能白白活着",
-			"desc": "文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...",
-			"imgUrl": "//upload-images.jianshu.io/upload_images/2259045-2986b9be86b01f63?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+			"title": "Redux 使用流程与个人心得（一）",
+			"desc": "Redux 是React生态中重要的组成部分。很多人都说，简单的应用可以不用此工具。但是我个人认为，中小型应用使用的话，可以使文件结构更加规范，代码可读性更强。因为React提出将展示组件与容器组件分离的思想，所以降低了React 与Redux之间的耦合度。",
+			"imgUrl": "//upload-images.jianshu.io/upload_images/2385085-76e80304b600d0c3?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
 		}, {
 			"id": 3,
-			"title": "胡歌12年后首谈车祸：既然活下来了，就不能白白活着",
-			"desc": "文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...",
-			"imgUrl": "//upload-images.jianshu.io/upload_images/2259045-2986b9be86b01f63?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+			"title": "Redux 使用流程与个人心得（一）",
+			"desc": "Redux 是React生态中重要的组成部分。很多人都说，简单的应用可以不用此工具。但是我个人认为，中小型应用使用的话，可以使文件结构更加规范，代码可读性更强。因为React提出将展示组件与容器组件分离的思想，所以降低了React 与Redux之间的耦合度。",
+			"imgUrl": "//upload-images.jianshu.io/upload_images/2385085-76e80304b600d0c3?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
 		}, {
 			"id": 4,
-			"title": "胡歌12年后首谈车祸：既然活下来了，就不能白白活着",
-			"desc": "文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...",
-			"imgUrl": "//upload-images.jianshu.io/upload_images/2259045-2986b9be86b01f63?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+			"title": "Redux 使用流程与个人心得（一）",
+			"desc": "Redux 是React生态中重要的组成部分。很多人都说，简单的应用可以不用此工具。但是我个人认为，中小型应用使用的话，可以使文件结构更加规范，代码可读性更强。因为React提出将展示组件与容器组件分离的思想，所以降低了React 与Redux之间的耦合度。",
+			"imgUrl": "//upload-images.jianshu.io/upload_images/2385085-76e80304b600d0c3?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
 		}],
 		"recommendList": [{
 			"id": 1,
